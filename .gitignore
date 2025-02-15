@@ -18,6 +18,9 @@ ml/*
 
 *.client.json
 
+*.backend.txt
+*.yaml
+
 
 .env
 *.env
