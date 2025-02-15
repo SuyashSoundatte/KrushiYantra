@@ -16,7 +16,7 @@ const AppRoutes = () => {
           <Route path="/main-page" element={<MainPage />}>
             <Route
               path="farmer"
-              element={<h1 className="text-4xl">Farmer Main Page</h1>}
+              element={<h1 className="text-4xl flex justify-center items-center">Farmer Main Page</h1>}
             />
             <Route
               path="buyer"

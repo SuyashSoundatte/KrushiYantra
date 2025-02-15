@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 const MainPage = () => {
   return (
     <>
-      <div>MainPage</div>
+      <div className="flex justify-center items-center text-4xl">MainPage</div>
       <Outlet />
     </>
   );
