@@ -9,7 +9,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* public Routes */}
-          <Route path="/" element={<h1>Landing</h1>} />
+          <Route path="/" element={<h1></h1>} />
           <Route path="*" element={<h1 className="text-red-500">404</h1>} />
 
           {/* private routes */}

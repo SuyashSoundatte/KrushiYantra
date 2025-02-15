@@ -3,7 +3,9 @@ import AppRoutes from './Routes/AppRoutes'
 
 const App = () => {
   return (
-    <AppRoutes />
+    <div className='bg-[#f3f3f3] h-screen'>
+      <AppRoutes />
+    </div>
   )
 }
 
