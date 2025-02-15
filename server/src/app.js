@@ -11,10 +11,11 @@ app.use(cors({
 }));
 
 import googleLogin from "./routes/auth.routes.js";
+import users from "./routes/user.routes.js";
 
 
-
-app.use('/api/auth', googleLogin);
+app.use('/api/v1/auth', googleLogin);
+app.use('/api/v1', users);
 app.use(ErrorHandler)
 
 app.get('/', (req, res)=>{
