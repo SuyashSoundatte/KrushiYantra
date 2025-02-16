@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { MainPage } from "../Pages/pages";
+import { MainPage, LandigPage } from "../Pages/pages";
 import Layout from "../Layout/Layout";
 
 const AppRoutes = () => {
@@ -9,7 +9,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* public Routes */}
-          <Route path="/" element={<h1></h1>} />
+          <Route path="/" element={<LandigPage />} />
           <Route path="*" element={<h1 className="text-red-500">404</h1>} />
 
           {/* private routes */}

@@ -11,9 +11,10 @@ const Button = ({
   className = "",
 }) => {
   const baseStyles =
-    "font-semibold rounded-lg transition-colors duration-300 focus:outline-none"
+    "text-sm font-semibold rounded-full transition-colors duration-300 focus:outline-none"
 
   const variants = {
+    white: "bg-transparent hover:bg-white hover:text-black",
     primary: "bg-blue-600 text-white hover:bg-blue-700",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
     success: "text-green-600 hover:text-white hover:bg-green-600",
