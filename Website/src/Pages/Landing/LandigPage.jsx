@@ -1,7 +1,7 @@
 import React from "react";
 import { GridDistortion } from "../../components/component";
 import Aurora from "../../components/Animated/Aurora";
-import landingImage from "../../assets/images/landing.jpg";
+// import landingImage from "../../assets/images/landing.jpg";
 import { Button } from "../../components/component";
 import RotatingText from "../../components/Animated/RotatingText";
 import FlowingMenu from "../../components/Animated/FlowingMenu";
