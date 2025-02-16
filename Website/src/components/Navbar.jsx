@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import {Button} from './component'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,10 +39,10 @@ const Navbar = () => {
           {/* Auth Buttons */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             <Button variant="white" className="text-sm">
-              Sign In
+              <Link to='/auth/signin'>Sign In</Link>
             </Button>
             <Button variant="white">
-              Sign Up
+              <Link to="/auth/signup">Sign Up</Link>
             </Button>
           </div>
 

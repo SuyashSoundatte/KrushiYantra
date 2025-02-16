@@ -51,14 +51,14 @@ const LandingPage = () => {
               <div className="masker">
                 <div className="w-fit flex items-baseline">
                   <h1 className="font-['textStruct'] uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] mr-4">
-                    World of
+                    World
                   </h1>
                   <RotatingText
                     texts={[
                       "Krushi Yantra",
                       "Climate Bot",
                       "Disease Bot",
-                      "Voice Assistant",
+                      "Voice Assist",
                       "Agriculture",
                     ]}
                     mainClassName="uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] font-['textStruct']"

@@ -1,15 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { MainPage, LandigPage } from "../Pages/pages";
+import { MainPage, LandigPage, AuthPage } from "../Pages/pages";
 import Layout from "../Layout/Layout";
+import SignUp from "../components/SignUp";
+import SignIn from "../components/SignIn";
 
 const AppRoutes = () => {
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* public Routes */}
           <Route path="/" element={<LandigPage />} />
+          <Route path="/auth" element={<AuthPage />} > 
+            <Route path="signup" element={<AuthPage />} />
+            <Route path="signin" element={<AuthPage />} />
+          </Route>
           <Route path="*" element={<h1 className="text-red-500">404</h1>} />
 
           {/* private routes */}
@@ -25,7 +30,6 @@ const AppRoutes = () => {
           </Route>
         </Route>
       </Routes>
-    </Router>
   );
 };
 
