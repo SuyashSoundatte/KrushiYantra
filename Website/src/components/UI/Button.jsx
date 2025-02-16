@@ -11,7 +11,7 @@ const Button = ({
   className = "",
 }) => {
   const baseStyles =
-    "text-sm font-semibold rounded-full transition-colors duration-300 focus:outline-none"
+    "text-sm font-semibold rounded-full transition-colors duration-300 focus:outline-none pointer-cursor"
 
   const variants = {
     white: "bg-transparent hover:bg-white hover:text-black",

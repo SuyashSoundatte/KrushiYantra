@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+
+::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 10px;
+}
+
+@font-face {
+  font-family: "Navbar";
+  src: url("./assets/Fonts/NeueMontreal-Regular.ttf");
+}
+@font-face {
+  font-family: "textStruct";
+  src: url('./assets/Fonts/FoundersGrotesk-Semibold.ttf');
+}
