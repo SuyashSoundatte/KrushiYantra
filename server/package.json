@@ -25,6 +25,7 @@
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.9",
     "pg": "^8.13.3",
+    "websocket": "^1.0.35",
     "winston": "^3.17.0"
   }
 }
