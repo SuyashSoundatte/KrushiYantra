@@ -7,6 +7,7 @@ import RotatingText from "../../components/Animated/RotatingText";
 import FlowingMenu from "../../components/Animated/FlowingMenu";
 import TiltedCard from "../../components/Animated/TitleCard";
 import CircularText from "../../components/Animated/CircularText";
+import Products from "../../components/Products";
 
 const LandingPage = () => {
   document.title = "Landing Page";
@@ -33,7 +34,7 @@ const LandingPage = () => {
     },
   ];
   return (
-    <div className="relative w-full min-h-screen">
+    <div className="relative w-full">
       <div className="w-full p-4">
         <div className="relative w-full h-screen">
           {/* Grid Distortion with Image */}
@@ -84,6 +85,7 @@ const LandingPage = () => {
                       "Climate Bot",
                       "Disease Bot",
                       "Voice Assist",
+                      "Gov Schemes",
                       "Agriculture",
                     ]}
                     mainClassName="uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] font-['textStruct']"
@@ -112,8 +114,18 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-screen w-full bg-purple-400">
-        <div className="w-full flex items-center justify-center h-screen"></div>
+      <div className="w-full px-5 md:px-20 py-10 md:py-20">
+        <div className="header bg-pink-300 text-4xl md:text-7xl font-['Navbar'] text-center md:text-left">
+          <h1>
+            <span>Take a Look at Our</span> Cutting-Edge
+          </h1>
+          <h1>
+            Services <span>For You!</span>
+          </h1>
+        </div>
+        <div className="w-full h-fit mt-10">
+          <Products />
+        </div>
       </div>
     </div>
   );

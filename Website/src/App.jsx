@@ -9,7 +9,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 const App = () => {
   const locomotiveScroll = new LocomotiveScroll();
   return (
-    <div className="bg-[#f3f3f3] h-screen">
+    <div className="bg-[#f3f3f3]">
       <Router>
         <RecoilRoot>
           <AppRoutes />

@@ -17,9 +17,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-5 left-0 right-0 z-50 bg-background/80 text-white font-['Navbar']">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-20 lg:py-2">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-5 left-0 right-0 z-50 bg-background/80 text-black font-['Navbar']">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-14 lg:py-2 ">
+        <div className="flex items-center justify-between h-16 px-4 rounded-2xl bg-transparent backdrop-blur-xl">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center gap-2">
