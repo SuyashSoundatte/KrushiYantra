@@ -7,8 +7,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0C130C;
-  border-radius: 10px;
+  background: #00A63E;
+  border-radius: 24px;
 }
 
 @font-face {
@@ -18,4 +18,17 @@
 @font-face {
   font-family: "textStruct";
   src: url('./assets/Fonts/FoundersGrotesk-Semibold.ttf');
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
 }

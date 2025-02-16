@@ -4,9 +4,34 @@ import Aurora from "../../components/Animated/Aurora";
 import landingImage from "../../assets/images/landing.jpg";
 import { Button } from "../../components/component";
 import RotatingText from "../../components/Animated/RotatingText";
+import FlowingMenu from "../../components/Animated/FlowingMenu";
+import TiltedCard from "../../components/Animated/TitleCard";
+import CircularText from "../../components/Animated/CircularText";
 
 const LandingPage = () => {
   document.title = "Landing Page";
+  const demoItems = [
+    {
+      link: "#",
+      text: "Mojave",
+      image: "https://picsum.photos/600/400?random=1",
+    },
+    {
+      link: "#",
+      text: "Sonoma",
+      image: "https://picsum.photos/600/400?random=2",
+    },
+    {
+      link: "#",
+      text: "Monterey",
+      image: "https://picsum.photos/600/400?random=3",
+    },
+    {
+      link: "#",
+      text: "Sequoia",
+      image: "https://picsum.photos/600/400?random=4",
+    },
+  ];
   return (
     <div className="relative w-full min-h-screen">
       <div className="w-full p-4">
@@ -87,7 +112,9 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-screen w-full bg-purple-400"></div>
+      <div className="h-screen w-full bg-purple-400">
+        <div className="w-full flex items-center justify-center h-screen"></div>
+      </div>
     </div>
   );
 };
