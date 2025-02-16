@@ -3,6 +3,7 @@ import { GridDistortion } from "../../components/component";
 import Aurora from "../../components/Animated/Aurora";
 import landingImage from "../../assets/images/landing.jpg";
 import { Button } from "../../components/component";
+import RotatingText from "../../components/Animated/RotatingText";
 
 const LandingPage = () => {
   document.title = "Landing Page";
@@ -10,7 +11,7 @@ const LandingPage = () => {
     <div className="relative w-full min-h-screen">
       <div className="w-full p-4">
         <div className="relative w-full h-screen">
-        {/* Grid Distortion with Image */}
+          {/* Grid Distortion with Image */}
           <GridDistortion
             imageSrc="https://images.unsplash.com/photo-1563201515-adbe35c669c5?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             grid={10}
@@ -21,16 +22,17 @@ const LandingPage = () => {
           />
 
           {/* Content Overlay */}
-          <div className="absolute w-full top-[50%] xl:top-[65%] -translate-y-1/2 px-4 sm:px-6 md:px-10 lg:px-16 text-white"
+          <div
+            className="absolute w-full top-[50%] xl:top-[65%] -translate-y-1/2 px-4 sm:px-6 md:px-10 lg:px-16 text-white"
             style={{
-              pointerEvents: "none"
+              pointerEvents: "none",
             }}
           >
             {/* Join Button */}
             <div className="mb-6 sm:mb-8">
               <Button
                 variant="default"
-                className="text-white text-sm sm:text-base backdrop-blur-2xl font-thin border border-white"
+                className="text-white text-sm sm:text-base backdrop-blur-3xl font-thin border border-white"
               >
                 Join the 1000+ farmers
               </Button>
@@ -38,29 +40,48 @@ const LandingPage = () => {
 
             {/* Main Text */}
             <div className="font-['textStruct']">
-              {["Get Into the World", "Of Agriculture"].map((item, index) => (
-                <div key={index} className="masker">
-                  <div className="w-fit flex items-baseline">
-                    <h1 className="font-['textStruct'] uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px]">
-                      {item}
-                    </h1>
-                    {/* {index === 1 && (
-                      <Button
-                        variant="default"
-                        className="text-[#039812] -tracking-normal bg-[#F7F7F7]  backdrop-blur-2xl font-thin border-[1px] border-white mb-4"
-                      >
-                        Join
-                      </Button>
-                    )} */}
-                  </div>
+              <div className="masker">
+                <div className="w-fit flex items-baseline">
+                  <h1 className="font-['textStruct'] uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px]">
+                    Get Into the AI
+                  </h1>
                 </div>
-              ))}
-            </div>  
+              </div>
+
+              <div className="masker">
+                <div className="w-fit flex items-baseline">
+                  <h1 className="font-['textStruct'] uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] mr-4">
+                    World of
+                  </h1>
+                  <RotatingText
+                    texts={[
+                      "Krushi Yantra",
+                      "Climate Bot",
+                      "Disease Bot",
+                      "Voice Assistant",
+                      "Agriculture",
+                    ]}
+                    mainClassName="uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] font-['textStruct']"
+                    staggerFrom="last"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-120%" }}
+                    staggerDuration={0.025}
+                    splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                    rotationInterval={3500} // Faster speed (3s per word)
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* Info Text */}
             <div className="mt-8">
               <p className="text-xs sm:text-sm md:text-base w-full sm:w-3/4 md:w-1/2 leading-relaxed">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere sed fugit dolorem modi tempore ullam consequuntur qui necessitatibus quos illo vel accusantium laudantium nam optio cupiditate asperiores, dolore numquam eaque sapiente? Minima!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
+                sed fugit dolorem modi tempore ullam consequuntur qui
+                necessitatibus quos illo vel accusantium laudantium nam optio
+                cupiditate asperiores, dolore numquam eaque sapiente? Minima!
               </p>
             </div>
           </div>
