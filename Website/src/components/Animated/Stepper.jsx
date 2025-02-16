@@ -59,11 +59,11 @@ export default function Stepper({
 
   return (
     <div
-      className="flex min-h-full flex-1 flex-col items-center justify-center p-4 sm:aspect-[4/3] md:aspect-[2/1]"
+      className="flex min-h-full flex-1 flex-col items-center justify-center  p-4 sm:aspect-[4/3] md:aspect-[2/1] "
       {...rest}
     >
       <div
-        className={`mx-auto w-full max-w-md rounded-4xl shadow-xl ${stepCircleContainerClassName}`}
+        className={`bg-white mx-auto w-full max-w-md rounded-4xl shadow-xl ${stepCircleContainerClassName}`}
         style={{ border: "1px solid #222" }}
       >
         <div className={`${stepContainerClassName} flex w-full items-center p-8`}>
@@ -225,7 +225,7 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }
         variants={{
           inactive: { scale: 1, backgroundColor: "#222", color: "#a3a3a3" },
           active: { scale: 1, backgroundColor: "#00A63E", color: "#00d8ff" },
-          complete: { scale: 1, backgroundColor: "##00A63E", color: "#3b82f6" },
+          complete: { scale: 1, backgroundColor: "#00A63E", color: "#3b82f6" },
         }}
         transition={{ duration: 0.3 }}
         className="flex h-8 w-8 items-center justify-center rounded-full font-semibold"
