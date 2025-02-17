@@ -5,6 +5,7 @@ import Stepper, { Step } from "./Animated/Stepper";
 import Input from "./UI/Input";
 import Select from "./UI/Select";
 import SpotlightCard from "./Animated/Spotlightcard";
+import Carousel from "./Animated/Carousel ";
 
 export {
   Navbar,
@@ -15,4 +16,5 @@ export {
   Input,
   Select,
   SpotlightCard,
+  Carousel,
 }

@@ -15,6 +15,7 @@ const Button = ({
 
   const variants = {
     white: "bg-transparent hover:bg-white hover:text-black",
+    black : "bg-black text-white hover:bg-white hover:text-black",
     primary: "bg-blue-600 text-white hover:bg-blue-700",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
     success: "text-green-600 hover:text-white hover:bg-green-600",

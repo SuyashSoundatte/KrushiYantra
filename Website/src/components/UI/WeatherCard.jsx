@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import {
   Sun,
   CloudRain,
@@ -12,46 +11,22 @@ import {
 import { SpotlightCard } from "../component";
 
 const WeatherCard = () => {
-  const [city, setCity] = useState("Fetching location...");
-  const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-
-          try {
-            // Reverse Geocoding API to get the city
-            const response = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
-            );
-            const data = await response.json();
-            const cityName = data.address.city || data.address.town || data.address.village || "Unknown Location";
-            setCity(cityName);
-            console.log(cityName);
-            
-            // Fetch weather data from the backend after city is fetched
-            try {
-              const weatherResponse = await axios.get(`http://localhost:3000/api/v1/weather/weather/${cityName}`);
-              console.log(weatherResponse)
-              setWeatherData(weatherResponse.data.data); // Adjust based on your API response structure
-            } catch (weatherError) {
-              setError("Failed to fetch weather data.");
-            }
-          } catch (err) {
-            setError("Failed to fetch location data.");
-          }
-        },
-        (err) => {
-          setError("Location access denied. Please enable location services.");
-        }
-      );
-    } else {
-      setError("Geolocation is not supported by this browser.");
-    }
-  }, []);
+  // Dummy weather data
+  const dummyWeatherData = {
+    weather: [
+      {
+        description: "scattered clouds",
+        icon: "03d",
+      },
+    ],
+    main: {
+      temp: 27,
+      humidity: 65,
+    },
+    wind: {
+      speed: 3.5,
+    },
+  };
 
   const getWeatherIcon = (weatherCode) => {
     const icons = {
@@ -77,72 +52,66 @@ const WeatherCard = () => {
     return icons[weatherCode] || <Sun className="w-16 h-16 text-yellow-400" />;
   };
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!weatherData) {
-    return <div>Loading weather data...</div>;
-  }
-
   return (
-    <SpotlightCard
-      className="custom-spotlight-card"
-      spotlightColor="rgba(255, 240, 80, 0.25)"
-    >
-      <div className="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-        <div className="bg-[#539EF6] py-6 px-4 text-white">
-          <div className="flex justify-between items-start">
-            <div className="space-y-1">
-              <h2 className="text-2xl font-bold">{weatherData.name}</h2>
-              <p className="text-sm opacity-90">
-                {new Date().toLocaleDateString("en-US", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+    <>
+      <SpotlightCard
+        className="custom-spotlight-card"
+        spotlightColor="rgba(255, 240, 80, 0.25)"
+      >
+        <div className="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+          <div className="bg-[#539EF6] py-6 px-4 text-white">
+            <div className="flex justify-between items-start">
+              <div className="space-y-1">
+                <h2 className="text-2xl font-bold">Weather</h2>
+                <p className="text-sm opacity-90">
+                  {new Date().toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+              {getWeatherIcon(dummyWeatherData.weather[0].icon)}
+            </div>
+
+            <div className="mt-6 space-y-4">
+              <div className="flex items-end">
+                <span className="text-5xl font-bold">
+                  {Math.round(dummyWeatherData.main.temp)}°C
+                </span>
+              </div>
+
+              <p className="text-lg capitalize">
+                {dummyWeatherData.weather[0].description}
               </p>
             </div>
-            {getWeatherIcon(weatherData.weather[0].icon)}
           </div>
 
-          <div className="mt-6 space-y-4">
-            <div className="flex items-end">
-              <span className="text-5xl font-bold">
-                {Math.round(weatherData.main.temp)}°C
-              </span>
+          <div className="grid grid-cols-2 gap-4 p-6 bg-white">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <Droplets className="w-5 h-5 text-blue-500" />
+                <span className="text-sm text-gray-500">Humidity</span>
+              </div>
+              <p className="text-lg font-semibold">
+                {dummyWeatherData.main.humidity}%
+              </p>
             </div>
 
-            <p className="text-lg capitalize">
-              {weatherData.weather[0].description}
-            </p>
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <Wind className="w-5 h-5 text-blue-500" />
+                <span className="text-sm text-gray-500">Wind Speed</span>
+              </div>
+              <p className="text-lg font-semibold">
+                {Math.round(dummyWeatherData.wind.speed)} m/s
+              </p>
+            </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-2 gap-4 p-6 bg-white">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <Droplets className="w-5 h-5 text-blue-500" />
-              <span className="text-sm text-gray-500">Humidity</span>
-            </div>
-            <p className="text-lg font-semibold">
-              {weatherData.main.humidity}%
-            </p>
-          </div>
-
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <Wind className="w-5 h-5 text-blue-500" />
-              <span className="text-sm text-gray-500">Wind Speed</span>
-            </div>
-            <p className="text-lg font-semibold">
-              {Math.round(weatherData.wind.speed)} m/s
-            </p>
-          </div>
-        </div>
-      </div>
-    </SpotlightCard>
+      </SpotlightCard>
+    </>
   );
 };
 
