@@ -36,4 +36,25 @@ const postWeather = asyncHandler(async (req, res) => {
   }
 });
 
-export { postWeather };
+const getWeather = asyncHandler(async (req, res)=>{
+    const { city } = req.params;
+
+    if (!city) {
+        throw new ApiError(400, "City is required!");
+    }
+
+    const url = 'http://localhost:5050/weather'
+
+    try {
+      const response = await axios.post(url, {city}, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return res.status(200).json(new ApiResponse(200, response.data, "Weather Prediction Fetched!"));
+    } catch (error) {
+      throw new ApiError(500, "ML Model Internal Server Error!");
+    }
+})
+
+export { postWeather, getWeather };
