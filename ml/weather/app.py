@@ -100,6 +100,29 @@ def home():
         "irrigation_advice": irrigation_advice,
         "weather_data": weather_data
     }), 200
+    
+    
+@app.route('/weather', methods=['POST'])
+def getWeather():
+    data = request.get_json()
+    
+    if not data:
+        return jsonify({"error": "Invalid input, expected date"}), 400
+
+    city = data.get("city", "").strip()
+    
+    if not city:
+        return jsonify({"error": "Missing required fields. Please provide city"}), 400
+    
+    weather_data = get_weather_data(city);   
+    
+    if not weather_data:
+        return jsonify({"error": "Failed to fetch weather data for the given city."}), 500
+    
+    return jsonify({
+        "weather_data": weather_data
+    }), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=port, use_reloader=False)
