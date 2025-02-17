@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Irrigation Prediction API
+  description: API for fetching weather data and predicting irrigation needs
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5050
+    description: Local development server
+
+paths:
+  /predict/weather:
+
+    post:
+      summary: Get irrigation prediction
+      description: Fetches weather data and predicts whether irrigation is needed.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Name of the city
+                  example: "Delhi"
+                crop:
+                  type: string
+                  description: Type of crop
+                  example: "Wheat"
+                soil:
+                  type: string
+                  description: Soil type (sandy, loamy, clayey)
+                  example: "Loamy"
+                last_irrigation:
+                  type: string
+                  format: date
+                  description: Date of last irrigation (YYYY-MM-DD)
+                  example: "2024-02-10"
+      responses:
+        "200":
+          description: Returns irrigation advice and weather forecast
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  irrigation_advice:
+                    type: string
+                    description: Advice on whether to irrigate or not
+                    example: "It's been a while since irrigation. Consider watering the crops."
+                  weather_data:
+                    type: array
+                    description: Weather forecast data
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          format: date
+                          example: "2024-02-12"
+                        temp:
+                          type: number
+                          format: float
+                          example: 22.5
+                        humidity:
+                          type: integer
+                          example: 65
+                        wind_speed:
+                          type: number
+                          format: float
+                          example: 5.2
+                        description:
+                          type: string
+                          example: "clear sky"
+        "400":
+          description: Invalid input or missing parameters
+        "500":
+          description: Internal server error

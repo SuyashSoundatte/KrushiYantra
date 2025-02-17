@@ -12,10 +12,11 @@ app.use(cors({
 
 import googleLogin from "./routes/auth.routes.js";
 import users from "./routes/user.routes.js";
+import weather from "./routes/weather.routes.js";
 
-
+app.use('/api/v1/weather', weather);
 app.use('/api/v1/auth', googleLogin);
-app.use('/api/v1', users);
+app.use('/api/v1/', users);
 app.use(ErrorHandler)
 
 app.get('/', (req, res)=>{
