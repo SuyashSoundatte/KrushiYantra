@@ -1,36 +1,15 @@
-/node_modules
-*/node_modules/*
 */node_modules
-node_modules/*
-*node_modules/*
-
-/db
-*/db/*
 */db
-db/*
-*db/*
 
-/ml
-*/ml/*
-*/ml
-ml/*
-*ml/*
+*/voice-Assistant
 
 *.client.json
 
 *.backend.txt
-*.yaml
+
 
 
 .env
 *.env
 *.sql
-*.txt
-
-*./uploads
-./uploads/
-./uploads
-./uploads/*
-*./uploads/*
-uploads/
-uploads/*
+*/.vnev
