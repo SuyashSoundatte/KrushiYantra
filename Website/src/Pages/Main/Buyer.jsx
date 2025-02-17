@@ -1,8 +1,11 @@
 import React from 'react'
+import Speech from '../../components/Speech'
 
 const Buyer = () => {
   return (
-    <div>Buyer</div>
+    <div>
+      <Speech />
+    </div>
   )
 }
 
