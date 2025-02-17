@@ -7,12 +7,14 @@ const Layout = () => {
   const location = useLocation();
 
   const hideNavbar = location.pathname === "/auth/signin" || location.pathname === "/auth/signup" || location.pathname === "/auth";
+  const showNavbar = location.pathname == "/";
 
   return (
     <>
-      <div className="w-full bg-[#f3f3f3]">
+      <div className="w-full bg-[#f3f3f3] font-['Navbar']">
         {/* <SplashCursor /> */}
         {hideNavbar ? null : <Navbar />}
+        {/* {showNavbar ? <Navbar /> : null} */}
         <Outlet />
       </div>
     </>

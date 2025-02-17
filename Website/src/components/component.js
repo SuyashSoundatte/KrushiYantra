@@ -4,6 +4,7 @@ import GridDistortion from "./Animated/GridDistortion";
 import Stepper, { Step } from "./Animated/Stepper";
 import Input from "./UI/Input";
 import Select from "./UI/Select";
+import SpotlightCard from "./Animated/Spotlightcard";
 
 export {
   Navbar,
@@ -12,5 +13,6 @@ export {
   Stepper,
   Step,
   Input,
-  Select
+  Select,
+  SpotlightCard,
 }

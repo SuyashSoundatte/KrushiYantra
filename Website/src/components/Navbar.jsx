@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./component";
 import { Link } from "react-router-dom";
 import FlowingMenu from "./Animated/FlowingMenu";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,9 +13,14 @@ const Navbar = () => {
     { link: "/", text: "Services", image: "/images/services.png" },
     { link: "/", text: "About Us", image: "/images/about.png" },
     { link: "/", text: "Contact Us", image: "/images/contact.png" },
-    { link: "/auth/signin", text: "Sign In", image: "/images/login.png" },
-    { link: "/auth/signup", text: "Sign Up", image: "/images/signup.png" },
   ];
+
+  if (window.location.pathname === "/") {
+    menuItems.push(
+      { link: "/auth/signup", text: "Sign Up", image: "/images/signup.png" },
+      { link: "/auth/signin", text: "Sign In", image: "/images/signin.png" }
+    );
+  }
 
   return (
     <nav className="fixed top-5 left-0 right-0 z-50 bg-background/80 text-black font-['Navbar']">
@@ -28,51 +34,75 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="xl:-ml-96 hidden md:flex md:items-center md:space-x-8">
-            <a
-              href="/"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              Services
-            </a>
-            <a
-              href="/"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              About Us
-            </a>
-            <a
-              href="/"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              Contact Us
-            </a>
-          </div>
+          {location.pathname == "/" ? (
+            <div className="xl:-ml-96 hidden md:flex md:items-center md:space-x-8">
+              <a
+                href="/"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
+                Services
+              </a>
+              <a
+                href="/"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
+                About Us
+              </a>
+              <a
+                href="/"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
+                Contact Us
+              </a>
+            </div>
+          ) : (
+            <div>
+              <CgProfile className="h-7 w-7 " />
+            </div>
+          )}
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex md:items-center md:space-x-4">
-            <Button variant="white">
-              <Link to="/auth/signin">Sign In</Link>
-            </Button>
-            <Button variant="white">
-              <Link to="/auth/signup">Sign Up</Link>
-            </Button>
-          </div>
+          {/* {
+            location.pathname == "/" ||
+            location.pathname == "/" && (
+              <div className="hidden md:flex md:items-center md:space-x-8">
+                <Button variant="white">
+                  <Link to="/auth/signup">Sign Up</Link>
+                </Button>
+                <Button variant="white">
+                  <Link to="/auth/signin">Sign In</Link>
+                </Button>
+              </div>
+            )
+          } */}
+
+          {location.pathname == "/" && (
+            <div className="hidden md:flex md:items-center md:space-x-8">
+              <Button variant="white">
+                <Link to="/auth/signup">Sign Up</Link>
+              </Button>
+              <Button variant="white">
+                <Link to="/auth/signin">Sign In</Link>
+              </Button>
+            </div>
+          )}
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground"
-            >
-              <span className="sr-only">Open main menu</span>
-              {isMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
+          {location.pathname == "/" && (
+            <div className="flex md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-foreground"
+              >
+                <span className="sr-only">Open main menu</span>
+                {isMenuOpen ? (
+                  <X className="block h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="block h-6 w-6" aria-hidden="true" />
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 

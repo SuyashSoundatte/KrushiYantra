@@ -1,12 +1,26 @@
-import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const userRole = localStorage.getItem("userRole");
+
+  //   if (userRole === "farmer") {
+  //     navigate("/mainpage/farmer");
+  //   } else if (userRole === "buyer") {
+  //     navigate("/mainpage/buyer");
+  //   } else {
+  //     navigate("/auth/signin");
+  //   }
+  // }, [navigate]);
+
   return (
-    <>
-      <div className="flex justify-center items-center text-4xl">MainPage</div>
+    <div className="pt-18">
       <Outlet />
-    </>
+    </div>
   );
 };
 

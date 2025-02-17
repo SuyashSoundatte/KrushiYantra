@@ -4,7 +4,8 @@ import { MainPage, LandigPage, AuthPage } from "../Pages/pages";
 import Layout from "../Layout/Layout";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
-
+import Farmer from "../Pages/Main/Farmer";
+import Buyer from "../Pages/Main/Buyer";
 const AppRoutes = () => {
   return (
       <Routes>
@@ -21,11 +22,11 @@ const AppRoutes = () => {
           <Route path="/main-page" element={<MainPage />}>
             <Route
               path="farmer"
-              element={<h1 className="text-4xl flex justify-center items-center">Farmer Main Page</h1>}
+              element={<Farmer />}
             />
             <Route
               path="buyer"
-              element={<h1 className="text-4xl">Buyer Main Page</h1>}
+              element={<Buyer />}
             />
           </Route>
         </Route>
