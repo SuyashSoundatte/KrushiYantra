@@ -18,7 +18,7 @@ const MainPage = () => {
   // }, [navigate]);
 
   return (
-    <div className= "pt-26 xl:pt-26 h-screen">
+    <div className= "pt-26 xl:pt-26">
       <Outlet />
     </div>
   );

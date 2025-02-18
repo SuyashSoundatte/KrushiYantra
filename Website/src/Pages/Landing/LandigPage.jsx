@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { GridDistortion } from "../../components/component";
 import Aurora from "../../components/Animated/Aurora";
 // import landingImage from "../../assets/images/landing.jpg";
@@ -10,7 +11,9 @@ import CircularText from "../../components/Animated/CircularText";
 import Products from "../../components/Products";
 
 const LandingPage = () => {
-  document.title = "Landing Page";
+  const { t } = useTranslation(); // Initialize translation function
+  document.title = t("landing_page_title"); // Update page title dynamically
+
   const demoItems = [
     {
       link: "#",
@@ -60,7 +63,7 @@ const LandingPage = () => {
                 variant="default"
                 className="text-white text-sm sm:text-base backdrop-blur-3xl font-thin border border-white"
               >
-                Join the 1000+ farmers
+                {t("join_farmers")}
               </Button>
             </div>
 
@@ -69,7 +72,7 @@ const LandingPage = () => {
               <div className="masker">
                 <div className="w-fit flex items-baseline">
                   <h1 className="font-['textStruct'] uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px]">
-                    Get Into the AI
+                    {t("get_into_ai")}
                   </h1>
                 </div>
               </div>
@@ -77,17 +80,10 @@ const LandingPage = () => {
               <div className="masker">
                 <div className="w-fit flex items-baseline">
                   <h1 className="font-['textStruct'] uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] mr-4">
-                    World
+                    {t("world")}
                   </h1>
                   <RotatingText
-                    texts={[
-                      "Krushi Yantra",
-                      "Climate Bot",
-                      "Disease Bot",
-                      "Voice Assist",
-                      "Gov Schemes",
-                      "Agriculture",
-                    ]}
+                    texts={t("rotating_text", { returnObjects: true })}
                     mainClassName="uppercase text-5xl md:text-8xl lg:text-9xl leading-[48px] md:leading-[95px] font-['textStruct']"
                     staggerFrom="last"
                     initial={{ y: "100%" }}
@@ -105,10 +101,7 @@ const LandingPage = () => {
             {/* Info Text */}
             <div className="mt-8">
               <p className="text-xs sm:text-sm md:text-base w-full sm:w-3/4 md:w-1/2 leading-relaxed">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
-                sed fugit dolorem modi tempore ullam consequuntur qui
-                necessitatibus quos illo vel accusantium laudantium nam optio
-                cupiditate asperiores, dolore numquam eaque sapiente? Minima!
+                {t("info_text", { returnObjects: true })}
               </p>
             </div>
           </div>
@@ -117,10 +110,10 @@ const LandingPage = () => {
       <div className="w-full px-5 md:px-20 py-10 md:py-20">
         <div className="header bg-pink-300 text-4xl md:text-7xl font-['Navbar'] text-center md:text-left">
           <h1>
-            <span>Take a Look at Our</span> Cutting-Edge
+            <span>{t("take_a_look")}</span> {t("cutting_edge", { returnObjects: true })}
           </h1>
           <h1>
-            Services <span>For You!</span>
+            {t("services_for_you", { returnObjects: true })}
           </h1>
         </div>
         <div className="w-full h-fit mt-10">

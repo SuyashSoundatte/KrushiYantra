@@ -9,7 +9,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 const App = () => {
   const locomotiveScroll = new LocomotiveScroll();
   return (
-    <div className="bg-[#f3f3f3]">
+    <div className="">
       <Router>
         <RecoilRoot>
           <AppRoutes />

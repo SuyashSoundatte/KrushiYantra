@@ -1,9 +1,18 @@
 {
   "select_language": "Select Language",
+  "krushi_yantra": "KrushiYantra",
   "services": "Services",
   "about_us": "About Us",
   "contact_us": "Contact Us",
   "sign_up": "Sign Up",
   "sign_in": "Sign In",
-  "krushi_yantra": "KrushiYantra"
+  "landing_page_title": "Landing Page",
+  "join_farmers": "Join the 1000+ farmers",
+  "get_into_ai": "Get Into the AI",
+  "world": "World",
+  "rotating_text": ["Krushi Yantra", "Climate Bot", "Disease Bot", "Voice Assist", "Gov Schemes", "Agriculture"],
+  "info_text": "This is an AI-powered agricultural service.",
+  "take_a_look": "Take a Look at Our",
+  "cutting_edge": "Cutting-Edge",
+  "services_for_you": "Services For You!"
 }

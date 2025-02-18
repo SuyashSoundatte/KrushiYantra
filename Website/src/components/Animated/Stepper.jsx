@@ -6,7 +6,7 @@ export default function Stepper({
   children,
   initialStep = 1,
   onStepChange = () => true,
-  onFinalStepCompleted = () => { },
+  onFinalStepCompleted = () => {},
   stepCircleContainerClassName = "",
   stepContainerClassName = "",
   contentClassName = "",
@@ -29,7 +29,7 @@ export default function Stepper({
   const updateStep = async (newStep) => {
     // Call onStepChange and wait for validation result
     const canProceed = await onStepChange(newStep);
-    
+
     if (canProceed) {
       setCurrentStep(newStep);
       if (newStep > totalSteps) {
@@ -66,7 +66,9 @@ export default function Stepper({
         className={`bg-white mx-auto w-full max-w-md rounded-4xl shadow-xl ${stepCircleContainerClassName}`}
         style={{ border: "1px solid #222" }}
       >
-        <div className={`${stepContainerClassName} flex w-full items-center p-8`}>
+        <div
+          className={`${stepContainerClassName} flex w-full items-center p-8`}
+        >
           {stepsArray.map((_, index) => {
             const stepNumber = index + 1;
             const isNotLastStep = index < totalSteps - 1;
@@ -110,7 +112,9 @@ export default function Stepper({
         {!isCompleted && (
           <div className={`px-8 pb-8 ${footerClassName}`}>
             <div
-              className={`mt-10 flex ${currentStep !== 1 ? "justify-between" : "justify-end"}`}
+              className={`mt-10 flex ${
+                currentStep !== 1 ? "justify-between" : "justify-end"
+              }`}
             >
               {currentStep !== 1 && (
                 <button
@@ -125,7 +129,7 @@ export default function Stepper({
                   {backButtonText}
                 </button>
               )}
-              <Button 
+              <Button
                 variant="success"
                 onClick={isLastStep ? handleComplete : handleNext}
                 {...nextButtonProps}
@@ -140,7 +144,13 @@ export default function Stepper({
   );
 }
 
-function StepContentWrapper({ isCompleted, currentStep, direction, children, className }) {
+function StepContentWrapper({
+  isCompleted,
+  currentStep,
+  direction,
+  children,
+  className,
+}) {
   const [parentHeight, setParentHeight] = useState(0);
 
   return (
@@ -207,8 +217,18 @@ export function Step({ children }) {
   return <div className="px-8">{children}</div>;
 }
 
-function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }) {
-  const status = currentStep === step ? "active" : currentStep < step ? "inactive" : "complete";
+function StepIndicator({
+  step,
+  currentStep,
+  onClickStep,
+  disableStepIndicators,
+}) {
+  const status =
+    currentStep === step
+      ? "active"
+      : currentStep < step
+      ? "inactive"
+      : "complete";
 
   const handleClick = () => {
     if (step !== currentStep && !disableStepIndicators) onClickStep(step);
@@ -273,7 +293,12 @@ function CheckIcon(props) {
       <motion.path
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ delay: 0.1, type: "tween", ease: "easeOut", duration: 0.3 }}
+        transition={{
+          delay: 0.1,
+          type: "tween",
+          ease: "easeOut",
+          duration: 0.3,
+        }}
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M5 13l4 4L19 7"

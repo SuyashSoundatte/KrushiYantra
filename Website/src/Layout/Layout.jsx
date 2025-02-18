@@ -11,7 +11,7 @@ const Layout = () => {
 
   return (
     <>
-      <div className="w-full bg-[#f3f3f3] font-['Navbar']">
+      <div className="w-full font-['Navbar']">
         {/* <SplashCursor /> */}
         {hideNavbar ? null : <Navbar />}
         {/* {showNavbar ? <Navbar /> : null} */}
