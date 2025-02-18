@@ -18,7 +18,7 @@ const postWeather = asyncHandler(async (req, res) => {
     last_irrigation: irrigation_date, 
   };
 
-  const url = "http://localhost:5050/predict/weather"; 
+  const url = "http://127.0.0.1:6000/predict/weather"; 
 
   try {
     const response = await axios.post(url, data, {
@@ -43,7 +43,7 @@ const getWeather = asyncHandler(async (req, res)=>{
         throw new ApiError(400, "City is required!");
     }
 
-    const url = 'http://localhost:5050/weather'
+    const url = 'http://127.0.0.1:6000/weather'
 
     try {
       const response = await axios.post(url, {city}, {
@@ -51,8 +51,10 @@ const getWeather = asyncHandler(async (req, res)=>{
           "Content-Type": "application/json",
         },
       });
+      console.log(response.data);
       return res.status(200).json(new ApiResponse(200, response.data, "Weather Prediction Fetched!"));
     } catch (error) {
+      console.error(error);
       throw new ApiError(500, "ML Model Internal Server Error!");
     }
 })

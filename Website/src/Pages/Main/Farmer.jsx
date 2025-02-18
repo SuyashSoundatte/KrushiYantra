@@ -72,7 +72,7 @@ const Farmer = () => {
     <div className="w-full h-screen">
       <div className="flex flex-col w-full h-full lg:flex-row lg:items-center">
         <div className="left w-full h-full lg:w-[55%] relative">
-          <div className="absolute top-[50%] xl:top-[30%] -translate-y-1/2 px-4 sm:px-6 md:px-10 lg:px-16 text-black z-10" style={{ pointerEvents: "none" }}>
+          <div className="absolute top-[35%] xl:top-[30%] -translate-y-1/2 px-4 sm:px-6 md:px-10 lg:px-16 text-black z-10" style={{ pointerEvents: "none" }}>
             <div>
               <Button variant="default" className="font-extralight bg-zinc-200 backdrop-blur-3xl border border-white">
                 Agriculture Technology
@@ -117,7 +117,7 @@ const Farmer = () => {
             </div>
           </div>
         </div>
-        <div className="right w-full h-[90%] lg:w-[43%] px-6 md:px-10 py-6 mb-2 xl:mb-24">
+        <div className="right w-full h-full lg:h-[90%] lg:w-[43%] px-6 md:px-10 py-6 mb-2 xl:mb-24">
           <div className="img h-full w-full rounded-2xl relative z-0">
             <div className="w-full h-full object-cover rounded-2xl">
               <GridDistortion
@@ -144,22 +144,23 @@ const Farmer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-4 absolute right-8 top-1/2 transform -translate-y-1/2">
+        <div className="flex flex-col gap-4 absolute right-[50%] lg:right-[35%] top-[60%] lg:top-[70%] transform -translate-y-1/2">
           {botOptions.map((bot, index) => (
             <div key={index} className="group relative flex items-center">
               <button
                 onClick={() => setCurrentImage(index)}
-                className={`w-12 h-12 rounded-full ${
+                className={`w-fit h-12 rounded-full flex gap-2 px-2 font-light ${
                   currentImage === index ? "bg-[#C7E6A5] text-black" : "bg-white text-[#C7E6A5]"
                 } shadow-lg hover:scale-110 transition-transform duration-200 flex items-center justify-center font-semibold z-10`}
               >
                 <Bot className="w-6 h-6" />
+                <h1>{bot.name}</h1> 
               </button>
-              <div className={`absolute right-16 bg-white text-black py-2 px-4 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap ${
+              {/* <div className={`absolute right-16 bg-white text-black py-2 px-4 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap ${
                 currentImage === index ? "text-black font-semibold" : ""
               }`}>
                 {bot.name}
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

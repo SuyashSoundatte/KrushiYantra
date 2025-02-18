@@ -3,9 +3,9 @@ import { useRef, useEffect } from "react";
 const Squares = ({
   direction = "right",
   speed = 1,
-  borderColor = "#999",
+  borderColor = "black",
   squareSize = 40,
-  hoverFillColor = "#222",
+  hoverFillColor = "#000000",
 }) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);

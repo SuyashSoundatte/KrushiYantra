@@ -36,6 +36,7 @@ const Climate = () => {
                 data.address.village ||
                 "Unknown Location"
             );
+            console.log(city)
           } catch (err) {
             setError("Failed to fetch location data.");
           }
@@ -65,6 +66,7 @@ const Climate = () => {
         { headers: { "Content-Type": "application/json" } }
       );
 
+      console.log(response.data.data)
       if (response.data.status) {
         setIrrigationAdvice(response.data.data.irrigation_advice);
         setWeatherData(response.data.data.weather_data);

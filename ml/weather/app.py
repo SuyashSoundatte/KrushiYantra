@@ -8,9 +8,11 @@ load_dotenv(
     dotenv_path="../.env"
 );
 
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 api_key = os.getenv('API_KEY');
 weather_api_url = os.getenv('WEATHER_API_URL');
 port = os.getenv('PORT');
@@ -127,6 +129,14 @@ def getWeather():
 def hello():
     return "Hello World!"
 
+import traceback
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    print("Internal Server Error:", str(e))
+    print(traceback.format_exc())  # Print full stack trace
+    return jsonify({"error": "ML Model Internal Server Error!"}), 500
+
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5050, use_reloader=True)
+    app.run(debug=True, host="0.0.0.0", port=6000, use_reloader=True)

@@ -1,9 +1,18 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 const MainPage = () => {
   const navigate = useNavigate();
+
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() =>{
+    if(!isLoggedIn){
+      navigate("/")
+    }
+  },[isLoggedIn, navigate])
 
   // useEffect(() => {
   //   const userRole = localStorage.getItem("userRole");
