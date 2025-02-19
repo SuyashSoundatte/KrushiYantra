@@ -21,7 +21,7 @@ const verifyToken = (req, res, next)=>{
     } catch (error) {
         if (error.name === "TokenExpiredError") {
             throw new ApiError(401, "Token expired, please login again");
-          }
+        }
         throw new ApiError(400, "Token not valid");
     }
 };
