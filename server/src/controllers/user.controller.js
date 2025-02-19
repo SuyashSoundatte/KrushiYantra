@@ -45,8 +45,6 @@ const registerUser = asyncHandler(async(req, res) => {
   } catch (err) {
     await pool.query('ROLLBACK');
     throw new ApiError(500, "Error registering user");
-  } finally {
-    pool.release();
   }
 });
 
